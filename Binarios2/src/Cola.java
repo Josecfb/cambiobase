@@ -11,6 +11,5 @@ public class Cola {
 	public synchronized void ponNumero(Numeros numero) {
 		miCola.add(numero);
 	}
-
 	
 }
