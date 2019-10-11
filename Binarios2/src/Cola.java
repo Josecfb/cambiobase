@@ -10,6 +10,19 @@ public class Cola {
 	
 	public synchronized void ponNumero(Numeros numero) {
 		miCola.add(numero);
+		notify();
 	}
-	
+
+	public synchronized Numeros sacaNumero() {
+		while (miCola.isEmpty()) {
+			try {
+				wait();
+			}catch (InterruptedException e){
+				System.out.println(e.getMessage());
+			}
+		}
+		if (!miCola.isEmpty())
+			return miCola.remove();
+		else return null;
+	}
 }

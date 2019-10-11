@@ -8,7 +8,7 @@ public class Productor implements Runnable{
 	Productor(int n,Cola cola){
 		this.n=n;
 		this.cola=cola;
-		hilo=new Thread(this,String.valueOf(n));
+		hilo=new Thread(this);
 		hilo.start();
 	}
 	
@@ -21,7 +21,7 @@ public class Productor implements Runnable{
 		String binario=convierte(n,base);
 		Numeros nNumero=new Numeros(base, binario);
 		cola.ponNumero(nNumero);
-		System.out.println("base: "+base+" numero: "+binario);
+		System.out.println("número "+n+" en base: "+base+" numero: "+binario);
 	}
 
 	private String convierte(int n,int base) {
