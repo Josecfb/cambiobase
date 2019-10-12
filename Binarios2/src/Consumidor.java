@@ -23,11 +23,8 @@ public class Consumidor implements Runnable{
 				valorDig=(int)digito-55;
 			else 
 				valorDig=Character.getNumericValue(digito);
-			decimal+=valorDig*Math.pow(base,(cadena.length()-1-c));
-			
-				
+			decimal+=valorDig*Math.pow(base,(cadena.length()-1-c));		
 		}
 		System.out.println(cadena+" en base "+ base+" es "+decimal+" en decimal");
 	}
-
 }
