@@ -4,6 +4,7 @@ public class Productor implements Runnable{
 	private int n;
 	private Thread hilo;
 	private Cola cola;
+	public final static int BINARIO=2,OCTAL=8,HEXADECIMAL=16;
 	
 	Productor(int n,Cola cola){
 		this.n=n;
@@ -16,12 +17,12 @@ public class Productor implements Runnable{
 	@Override
 	public void run() {
 		int base=(int)(Math.random()*3);
-		if (base==0)base=2;
-		else if (base==1) base=8; else base=16;
-		String binario=convierte(n,base);
-		Numeros nNumero=new Numeros(base, binario);
+		if (base==0)base=BINARIO;
+		else if (base==1) base=OCTAL; else base=HEXADECIMAL;
+		String enOtraBase=convierte(n,base);
+		Numeros nNumero=new Numeros(base,enOtraBase );
 		cola.ponNumero(nNumero);
-		System.out.println("número "+n+" en base: "+base+" numero: "+binario);
+		System.out.println("el decimal "+n+" en base: "+base+" numero: "+enOtraBase);
 	}
 
 	private String convierte(int n,int base) {
